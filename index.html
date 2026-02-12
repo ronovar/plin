@@ -35,7 +35,11 @@ if (getCookie("stanjeod")!="" && getCookie("stanjeod")!=null)
 }
 </script>
 </head>
-<body>
+<body onload=getCookie("stanjeod")>
+
+<script>
+alert("cookie: "+getCookie("stanjeod"));
+</script>
 
 <h1>Međimurje Plin - Izračun</h1>
 
@@ -66,7 +70,6 @@ function izracunaj() {
 
  var stanjeod = document.getElementById("stanjeod").value;
    if (stanjeod!="" && stanjeod!=null) {
-console.log(stanjeod);
       setCookie("stanjeod",stanjeod,365);
    }
 }
