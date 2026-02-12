@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+</head>
+<body>
+
+<h1>Međimurje Plin - Izračun</h1>
+
+
+  <label for="lblStanjeOD">STANJE OD:</label>
+  <input type="text" id="stanjeod" name="stanjeod"><br><br>
+  <label for="lblStanjeDO">STANJE DO:</label>
+  <input type="text" id="stanjedo" name="stanjedo"><br><br>
+  <button onclick="izracunaj()">Izračunaj</button>
+
+
+<p id="info"></p>
+
+<script>
+function izracunaj() {
+  var stanjeod = document.getElementById("stanjeod").value;
+  var stanjedo = document.getElementById("stanjedo").value;
+  var stanje   = stanjedo - stanjeod;
+ 
+  var energija = Math.round(stanje * 0.948678 * 11.170207);
+  var iznos    = (((energija * 0.0522) + 1.73) * 1.05).toFixed(2);
+
+  var subvencija = (energija * 0.0043).toFixed(2);
+
+  var platiti  = (iznos - subvencija).toFixed(2);
+
+  document.getElementById("info").innerHTML = "KOLIČINA: <b>" + stanje + " m3</b><br>ENERGIJA: <b>" + energija + " kWh</b></br>IZNOS: <b>€" + iznos + "</b><br>SUBVENCIJA: <b>-€" + subvencija + "</b><br><br>ZA PLATITI: <b>€" + platiti + "</b>";
+}
+</script>
+
+</body>
+</html>
