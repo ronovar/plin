@@ -29,7 +29,8 @@ for(var i=0; i<ca.length; i++)
 return "";
 }
 
-if (getCookie("stanjeod") > 0) {
+if (getCookie("stanjeod")!="" && getCookie("stanjeod")!=null)
+{    
    document.getElementById("stanjeod").value = getCookie("stanjeod");
 }
 </script>
@@ -62,11 +63,13 @@ function izracunaj() {
   var platiti  = (iznos - subvencija).toFixed(2);
 
   document.getElementById("info").innerHTML = "KOLIČINA: <b>" + stanje + " m3</b><br>ENERGIJA: <b>" + energija + " kWh</b></br>IZNOS: <b>€" + iznos + "</b><br>SUBVENCIJA: <b>-€" + subvencija + "</b><br><br>ZA PLATITI: <b>€" + platiti + "</b>";
+
+ var stanjeod = document.getElementById("stanjeod").value;
+   if (stanjeod!="" && stanjeod!=null) {
+console.log(stanjeod);
+      setCookie("stanjeod",stanjeod,365);
+   }
 }
-
-   var stanjeod = document.getElementById("stanjeod").value;
-   setCookie("stanjeod",stanjeod,365);
-
 </script>
 
 </body>
