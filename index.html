@@ -35,9 +35,10 @@ return "";
 
 <script>
 if (getCookie("stanjeod")!="" && getCookie("stanjeod")!=null)
-{    
-alert(getCookie("stanjeod"));
-   document.getElementById("stanjeod").value = getCookie("stanjeod");
+{ 
+   var stanjeod = getCookie("stanjeod");  
+alert(stanjeod);
+   document.getElementById("stanjeod").value = stanjeod;
 }
 </script>
 
